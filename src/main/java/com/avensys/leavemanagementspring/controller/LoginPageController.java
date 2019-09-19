@@ -25,14 +25,14 @@ public class LoginPageController {
 		this.loginPageService = loginPageService;
 	}
 	
-	@GetMapping("")
+	@GetMapping
 	public String displayLoginPage(Model model) {
 		User user = new User();
 		model.addAttribute("user", user);
-		return "index";
+		return "login";
 	}
 	
-	@PostMapping("")
+	@PostMapping
 	public String loginUser(@ModelAttribute("user") User user) {
 		System.out.println("loginUser");
 		System.out.println(user.getEmail() + user.getPassword());
@@ -41,7 +41,7 @@ public class LoginPageController {
 				return "welcome";
 		}
 		else {
-			return "index";
+			return "login";
 		}
 	}
 
